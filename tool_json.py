@@ -8,6 +8,19 @@ json.dumps(dict) 字典转换成json字符串
 
 
 class My_Json:
+
+    def __init__(self):
+        self.example_data = {"a": "A", "b": "B"}
+
+    def dict2jsonstr(self, dict, indent=2):
+        str_json = json.dumps(dict, ensure_ascii=False, indent=indent)
+        # str_json = json.dumps(dict)
+        return str_json
+
+    def jsonstr2dict(self, jsonstr):
+        data = json.loads(jsonstr)
+        return data
+
     def dict2file(self, dict_json, pathFile):
         # 将字典转换成json字符串
         str_json = json.dumps(dict_json)
@@ -15,7 +28,7 @@ class My_Json:
         # 字典转换成json 存入本地文件
         with open(pathFile, 'w') as f:
             # 设置不转换成ascii  json字符串首缩进
-            f.write(json.dumps(dict_json, ensure_ascii=False, indent=2))
+            f.write(self.dict2jsonstr(dict_json))
 
     def file2dict(self, pathFile):
         with open(pathFile, 'r') as f:
