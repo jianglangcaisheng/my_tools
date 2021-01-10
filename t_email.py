@@ -78,4 +78,6 @@ if __name__ == "__main__":
 
     my_json = tool_json.My_Json()
 
-    send_mail(my_json.dict2jsonstr(my_json.example_data))
+    data = {"time": "2021"}
+
+    send_mail(my_json.dict2jsonstr(data))

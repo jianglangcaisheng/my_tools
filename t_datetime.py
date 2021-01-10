@@ -13,8 +13,8 @@ def date2milisecond(date_str, GMT=0):
     return res
 
 
-def get_current_timestr(fmt="%Y-%m-%d %H:%M:%S"):
-    timestr = datetime.datetime.now().strftime(fmt)
+def get_current_timestr(fmt="%Y-%m-%d %H:%M:%S", GMT=8):
+    timestr = (datetime.datetime.now() + datetime.timedelta(hours=GMT)).strftime(fmt)
     return timestr
 
 
