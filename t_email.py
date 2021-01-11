@@ -58,9 +58,10 @@ def send_mail(body_content_out):
         mm.attach(atta)
 
     # 创建SMTP对象
-    stp = smtplib.SMTP()
+    # stp = smtplib.SMTP()
+    stp = smtplib.SMTP_SSL(mail_host, 465)
     # 设置发件人邮箱的域名和端口，端口地址为25
-    stp.connect(mail_host, 25)
+    # stp.connect(mail_host, 25)
     # set_debuglevel(1)可以打印出和SMTP服务器交互的所有信息
     stp.set_debuglevel(1)
     # 登录邮箱，传递参数1：邮箱地址，参数2：邮箱授权码
@@ -78,6 +79,6 @@ if __name__ == "__main__":
 
     my_json = tool_json.My_Json()
 
-    data = {"time": "2021_dell2"}
+    data = {"time": "2021-01-11"}
 
     send_mail(my_json.dict2jsonstr(data))
