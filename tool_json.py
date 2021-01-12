@@ -1,4 +1,6 @@
 import json
+from deprecated.sphinx import deprecated
+import warnings
 
 '''
 json.loads(json_str) json字符串转换成字典
@@ -52,7 +54,9 @@ class My_Json:
         with open(pathFile, 'a') as f:
             f.write(str_row + "\n")
 
+    @deprecated
     def text2object(self, text):
+        warnings.warn("Use jsonstr2dict", DeprecationWarning)
         data = json.loads(text)
         return data
 

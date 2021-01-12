@@ -2,7 +2,7 @@
 import sys
 import pymysql
 import datetime
-import my_tool.tool_basic as tool_basic
+import tool_basic
 
 
 # CREATE TABLE `stock_daily`  (
